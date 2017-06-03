@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TableViewDataFetchView : UIView
--(instancetype)init;
+
+@property (weak,nonatomic) id<UITableViewDataSource, UITableViewDelegate> delegate;
+
+-(instancetype)initWithDelegate: (id <UITableViewDelegate, UITableViewDataSource>) delegate;
+
 @end

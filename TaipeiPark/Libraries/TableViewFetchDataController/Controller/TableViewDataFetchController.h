@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TableViewDataFetchProtocol.h"
 
-@interface TableViewDataFetchController : UIViewController
+@interface TableViewDataFetchController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 -(instancetype)initWithDataModel: (id<TableViewDataFetchProtocol>) dataModel;
 
