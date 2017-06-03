@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C528BC81EE2E91700C406CD /* Park.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C528BC71EE2E91700C406CD /* Park.m */; };
 		3C5B09F01EE25EBD00A5785D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B09EF1EE25EBD00A5785D /* main.m */; };
 		3C5B09F31EE25EBD00A5785D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B09F21EE25EBD00A5785D /* AppDelegate.m */; };
 		3C5B09FB1EE25EBD00A5785D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B09FA1EE25EBD00A5785D /* Assets.xcassets */; };
@@ -21,6 +22,9 @@
 
 /* Begin PBXFileReference section */
 		3C528BC21EE2E3C900C406CD /* ParkTableViewDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParkTableViewDataModel.h; path = Model/ParkTableViewDataModel.h; sourceTree = "<group>"; };
+		3C528BC61EE2E91700C406CD /* Park.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Park.h; path = Model/Park.h; sourceTree = "<group>"; };
+		3C528BC71EE2E91700C406CD /* Park.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Park.m; path = Model/Park.m; sourceTree = "<group>"; };
+		3C528BC91EE2E93500C406CD /* CellParkData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellParkData.h; path = Model/CellParkData.h; sourceTree = "<group>"; };
 		3C5B09EB1EE25EBD00A5785D /* TaipeiPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaipeiPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C5B09EF1EE25EBD00A5785D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3C5B09F11EE25EBD00A5785D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -110,6 +114,9 @@
 			children = (
 				3CE5A7051EE2C86A007F9986 /* TaipeiParks.h */,
 				3CE5A7061EE2C86A007F9986 /* TaipeiParks.m */,
+				3C528BC61EE2E91700C406CD /* Park.h */,
+				3C528BC71EE2E91700C406CD /* Park.m */,
+				3C528BC91EE2E93500C406CD /* CellParkData.h */,
 				3C528BC21EE2E3C900C406CD /* ParkTableViewDataModel.h */,
 			);
 			name = Model;
@@ -260,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C7034241EE289B600F65218 /* TableViewDataFetchView.m in Sources */,
+				3C528BC81EE2E91700C406CD /* Park.m in Sources */,
 				3C70341E1EE2896100F65218 /* TableViewDataFetchController.m in Sources */,
 				3CE5A70B1EE2DB2B007F9986 /* ParkTableViewCell.m in Sources */,
 				3C5B0A0B1EE2734B00A5785D /* ParkTableViewController.m in Sources */,
