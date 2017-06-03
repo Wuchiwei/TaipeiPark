@@ -13,6 +13,6 @@
 @required
 -(NSInteger)numberOfSectionInTableView;
 -(NSInteger)numberOfRowInSection:(NSInteger) section;
--(id) objectiveForCellAtRow:(NSInteger)row section:(NSInteger) section;
+-(id) objectForCellAtRow:(NSInteger)row section:(NSInteger) section;
 
 @end

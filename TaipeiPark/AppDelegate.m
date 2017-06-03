@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TableViewDataFetchController.h"
 #import "TestModel.h"
+#import "DataFetchTableViewCell.h"
 
 @interface AppDelegate ()
 
@@ -25,7 +26,11 @@
     
     id<TableViewDataFetchProtocol> dataModel = [[TestModel alloc] init];
     
-    [self.window setRootViewController:[[TableViewDataFetchController alloc] initWithDataModel:dataModel]];
+    TableViewDataFetchController *controller = [[TableViewDataFetchController alloc] initWithDataModel:dataModel];
+    
+    [controller cellIdentifiers: [DataFetchTableViewCell.self identifier]];
+
+    [self.window setRootViewController: controller];
     
     [self.window makeKeyAndVisible];
     

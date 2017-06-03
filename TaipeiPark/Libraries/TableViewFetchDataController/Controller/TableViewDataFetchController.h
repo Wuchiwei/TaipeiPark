@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "TableViewDataFetchProtocol.h"
+#import "DataFetchTableViewCellProtocol.h"
 
 @interface TableViewDataFetchController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 -(instancetype)initWithDataModel: (id<TableViewDataFetchProtocol>) dataModel;
+
+-(void)cellIdentifiers:(NSString*) identifier;
 
 @end

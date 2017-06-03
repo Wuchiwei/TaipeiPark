@@ -17,7 +17,7 @@
     return 1;
 }
 
--(id) objectiveForCellAtRow:(NSInteger)row section:(NSInteger) section {
+-(id) objectForCellAtRow:(NSInteger)row section:(NSInteger) section {
     return self;
 }
 

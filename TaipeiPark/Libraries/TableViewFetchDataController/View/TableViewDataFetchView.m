@@ -24,18 +24,34 @@
 
 -(void)setUp {
     
-    UITableView* tableView = [[UITableView alloc] initWithFrame: CGRectZero];
+    self.tableView = [[UITableView alloc] initWithFrame: CGRectZero];
     
-    tableView.delegate = self.delegate;
-    tableView.dataSource = self.delegate;
+    UITableView* myTableView = self.tableView;
     
-    tableView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addSubview:tableView];
-    NSLayoutConstraint* top = [tableView.topAnchor constraintEqualToAnchor: self.topAnchor];
-    NSLayoutConstraint* leading = [tableView.leadingAnchor constraintEqualToAnchor: self.leadingAnchor];
-    NSLayoutConstraint* trailing = [tableView.trailingAnchor constraintEqualToAnchor: self.trailingAnchor];
-    NSLayoutConstraint* bottom = [tableView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
+    myTableView.delegate = self.delegate;
+    
+    myTableView.dataSource = self.delegate;
+    
+    myTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [self addSubview:myTableView];
+    
+    NSLayoutConstraint* top = [myTableView.topAnchor constraintEqualToAnchor: self.topAnchor];
+    
+    NSLayoutConstraint* leading = [myTableView.leadingAnchor constraintEqualToAnchor: self.leadingAnchor];
+    
+    NSLayoutConstraint* trailing = [myTableView.trailingAnchor constraintEqualToAnchor: self.trailingAnchor];
+    
+    NSLayoutConstraint* bottom = [myTableView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor];
+    
     [self addConstraints:@[top, leading, trailing, bottom]];
+}
+
+-(void) cellIdentifier:(NSString *)identifier {
+    
+    UINib* nib = [UINib nibWithNibName:identifier bundle:nil];
+    
+    [self.tableView registerNib:nib forCellReuseIdentifier:identifier];
 }
 
 @end

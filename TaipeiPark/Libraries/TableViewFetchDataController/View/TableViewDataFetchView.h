@@ -11,7 +11,9 @@
 @interface TableViewDataFetchView : UIView
 
 @property (weak,nonatomic) id<UITableViewDataSource, UITableViewDelegate> delegate;
+@property (strong, nonatomic) UITableView* tableView;
 
 -(instancetype)initWithDelegate: (id <UITableViewDelegate, UITableViewDataSource>) delegate;
+-(void)cellIdentifier: (NSString*) identifier;
 
 @end

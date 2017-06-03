@@ -12,7 +12,8 @@
 @interface TableViewDataFetchController ()
 
 @property (nonatomic, strong) id<TableViewDataFetchProtocol> dataModel;
-
+@property (nonatomic, copy, nullable) void(^cellHandler)(id, UITableViewCell*);
+@property (nonatomic, strong) NSString* cellIdentifier;
 @end
 
 @implementation TableViewDataFetchController
@@ -22,14 +23,16 @@
     
     if (self) {
         self.dataModel = dataModel;
+        self.cellHandler = ^(id object, UITableViewCell *cell) {
+            
+        };
     }
+    
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self setUp];
 }
 
 -(void) setUp {
@@ -42,6 +45,8 @@
 -(void) setUpFetchView {
     
     TableViewDataFetchView* fetchView = [[TableViewDataFetchView alloc] initWithDelegate: self];
+    
+    [fetchView cellIdentifier:self.cellIdentifier];
     
     fetchView.translatesAutoresizingMaskIntoConstraints = NO;
     
@@ -58,6 +63,13 @@
     [self.view addConstraints:[[NSArray alloc] initWithObjects:top, leading, trailing, bottom, nil]];
 }
 
+-(void)cellIdentifiers:(NSString *)identifier {
+    
+    self.cellIdentifier = identifier;
+    
+    [self setUp];
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return [self.dataModel numberOfSectionInTableView];
@@ -69,15 +81,19 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-    
-    cell.textLabel.text = @"Hi";
-    
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: self.cellIdentifier
+                                                            forIndexPath: indexPath];
+
+    id object = [self.dataModel objectForCellAtRow:indexPath.row section:indexPath.section];
+
+    self.cellHandler(object, cell);
+
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     return UITableViewAutomaticDimension;
 }
 
@@ -85,6 +101,7 @@
     
     return 100.0;
 }
+
 @end
 
 
