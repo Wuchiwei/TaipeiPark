@@ -10,6 +10,19 @@
 
 @implementation TableViewDataFetchView
 
+-(instancetype)init{
+    
+    self = [super init];
+    
+    if (self) {
+        [self setUp];
+    }
+    
+    return self;
+}
 
+-(void)setUp {
+    self.backgroundColor = [UIColor redColor];
+}
 
 @end

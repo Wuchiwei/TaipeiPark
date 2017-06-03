@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TableViewDataFetchProtocol.h"
 
 @interface TableViewDataFetchController : UIViewController
+
+-(instancetype)initWithDataModel: (id<TableViewDataFetchProtocol>) dataModel;
 
 @end

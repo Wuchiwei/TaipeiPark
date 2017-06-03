@@ -14,6 +14,7 @@
 		3C5B0A0B1EE2734B00A5785D /* ParkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B0A0A1EE2734B00A5785D /* ParkTableViewController.m */; };
 		3C70341E1EE2896100F65218 /* TableViewDataFetchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C70341D1EE2896100F65218 /* TableViewDataFetchController.m */; };
 		3C7034241EE289B600F65218 /* TableViewDataFetchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7034231EE289B600F65218 /* TableViewDataFetchView.m */; };
+		3CE5A6FE1EE29B1D007F9986 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE5A6FD1EE29B1D007F9986 /* TestModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,10 @@
 		3C70341D1EE2896100F65218 /* TableViewDataFetchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewDataFetchController.m; path = Libraries/TableViewFetchDataController/Controller/TableViewDataFetchController.m; sourceTree = "<group>"; };
 		3C7034221EE289B600F65218 /* TableViewDataFetchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewDataFetchView.h; path = Libraries/TableViewFetchDataController/View/TableViewDataFetchView.h; sourceTree = "<group>"; };
 		3C7034231EE289B600F65218 /* TableViewDataFetchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewDataFetchView.m; path = Libraries/TableViewFetchDataController/View/TableViewDataFetchView.m; sourceTree = "<group>"; };
+		3C7034251EE28AC400F65218 /* TableViewDataFetchProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewDataFetchProtocol.h; path = Libraries/TableViewFetchDataController/Model/TableViewDataFetchProtocol.h; sourceTree = "<group>"; };
+		3CE5A6F81EE29427007F9986 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Extension.h"; path = "Extension/UIView+Extension.h"; sourceTree = "<group>"; };
+		3CE5A6FC1EE29B1D007F9986 /* TestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestModel.h; path = Libraries/TableViewFetchDataController/Model/TestModel.h; sourceTree = "<group>"; };
+		3CE5A6FD1EE29B1D007F9986 /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestModel.m; path = Libraries/TableViewFetchDataController/Model/TestModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +67,7 @@
 		3C5B09ED1EE25EBD00A5785D /* TaipeiPark */ = {
 			isa = PBXGroup;
 			children = (
+				3CE5A6F71EE293FD007F9986 /* Extension */,
 				3C5B0A0C1EE2737B00A5785D /* Libraries */,
 				3C5B0A081EE2724000A5785D /* AppDelegate */,
 				3C5B0A061EE2722200A5785D /* Model */,
@@ -154,8 +160,19 @@
 		3C7034211EE2897B00F65218 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3C7034251EE28AC400F65218 /* TableViewDataFetchProtocol.h */,
+				3CE5A6FC1EE29B1D007F9986 /* TestModel.h */,
+				3CE5A6FD1EE29B1D007F9986 /* TestModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		3CE5A6F71EE293FD007F9986 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3CE5A6F81EE29427007F9986 /* UIView+Extension.h */,
+			);
+			name = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +249,7 @@
 				3C7034241EE289B600F65218 /* TableViewDataFetchView.m in Sources */,
 				3C70341E1EE2896100F65218 /* TableViewDataFetchController.m in Sources */,
 				3C5B0A0B1EE2734B00A5785D /* ParkTableViewController.m in Sources */,
+				3CE5A6FE1EE29B1D007F9986 /* TestModel.m in Sources */,
 				3C5B09F31EE25EBD00A5785D /* AppDelegate.m in Sources */,
 				3C5B09F01EE25EBD00A5785D /* main.m in Sources */,
 			);

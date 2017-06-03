@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TableViewDataFetchView : UIView
-
+-(instancetype)init;
 @end
