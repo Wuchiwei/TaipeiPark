@@ -7,12 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "TableViewDataFetchController.h"
-#import "TestModel.h"
-#import "DataFetchTableViewCell.h"
-
 #import "ParkTableViewController.h"
-#import "ParkTableViewDataModel.h"
 #import "TaipeiParks.h"
 
 @interface AppDelegate ()
