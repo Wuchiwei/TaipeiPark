@@ -24,7 +24,7 @@
     if (self) {
         self.dataModel = dataModel;
         self.cellHandler = ^(id object, UITableViewCell *cell) {
-            
+
         };
     }
     
@@ -68,6 +68,16 @@
     self.cellIdentifier = identifier;
     
     [self setUp];
+}
+
+-(void)cellForRowHandler:(void(^)(id object, UITableViewCell* cell)) handler {
+
+    self.cellHandler = handler;
+}
+
+-(void)arrangeViewWithHandler:(void(^)(UIView* childView)) handler {
+    
+    handler(self.view);
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

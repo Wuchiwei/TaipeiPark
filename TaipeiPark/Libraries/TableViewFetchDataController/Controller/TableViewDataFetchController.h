@@ -15,5 +15,7 @@
 -(instancetype)initWithDataModel: (id<TableViewDataFetchProtocol>) dataModel;
 
 -(void)cellIdentifiers:(NSString*) identifier;
+-(void)cellForRowHandler:(void(^)(id object, UITableViewCell* cell)) handler;
+-(void)arrangeViewWithHandler:(void(^)(UIView* childView)) handler;
 
 @end

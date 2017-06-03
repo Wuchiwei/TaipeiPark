@@ -11,6 +11,10 @@
 #import "TestModel.h"
 #import "DataFetchTableViewCell.h"
 
+#import "ParkTableViewController.h"
+#import "ParkTableViewDataModel.h"
+#import "TaipeiParks.h"
+
 @interface AppDelegate ()
 
 @end
@@ -24,11 +28,9 @@
     
     self.window.frame = [UIScreen mainScreen].bounds;
     
-    id<TableViewDataFetchProtocol> dataModel = [[TestModel alloc] init];
+    id<ParkTableViewDataModel> dataModel = [[TaipeiParks alloc] init];
     
-    TableViewDataFetchController *controller = [[TableViewDataFetchController alloc] initWithDataModel:dataModel];
-    
-    [controller cellIdentifiers: [DataFetchTableViewCell.self identifier]];
+    ParkTableViewController *controller = [[ParkTableViewController alloc] initWithDataModel:dataModel];
 
     [self.window setRootViewController: controller];
     

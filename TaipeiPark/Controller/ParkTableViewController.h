@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TableViewDataFetchProtocol.h"
+#import "ParkTableViewDataModel.h"
 
 @interface ParkTableViewController : UIViewController
 
+-(instancetype)initWithDataModel: (id<ParkTableViewDataModel>) dataModel;
+
 @end
+
