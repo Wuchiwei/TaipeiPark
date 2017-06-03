@@ -27,12 +27,23 @@
         
         self.dataModel = dataModel;
     }
-    
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.view.backgroundColor = [UIColor whiteColor];
+
+    [self setUp];
+}
+
+-(void) setUp {
+
+    [self addTableViewDataFetchController];
+}
+
+-(void) addTableViewDataFetchController {
     
     self.tableViewController = [[TableViewDataFetchController alloc] initWithDataModel:self.dataModel];
     
@@ -49,7 +60,7 @@
         if (childView.superview) {
             
             UIView *superView = childView.superview;
-
+            
             childView.translatesAutoresizingMaskIntoConstraints = false;
             
             NSLayoutConstraint *top = [childView.topAnchor constraintEqualToAnchor: weakSelf.topLayoutGuide.bottomAnchor];
