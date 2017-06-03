@@ -12,7 +12,8 @@
 		3C5B09FB1EE25EBD00A5785D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B09FA1EE25EBD00A5785D /* Assets.xcassets */; };
 		3C5B09FE1EE25EBD00A5785D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B09FC1EE25EBD00A5785D /* LaunchScreen.storyboard */; };
 		3C5B0A0B1EE2734B00A5785D /* ParkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B0A0A1EE2734B00A5785D /* ParkTableViewController.m */; };
-		3C5B0A111EE2745300A5785D /* TableViewDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B0A101EE2745300A5785D /* TableViewDataFetcher.m */; };
+		3C70341E1EE2896100F65218 /* TableViewDataFetchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C70341D1EE2896100F65218 /* TableViewDataFetchController.m */; };
+		3C7034241EE289B600F65218 /* TableViewDataFetchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7034231EE289B600F65218 /* TableViewDataFetchView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,8 +26,10 @@
 		3C5B09FF1EE25EBD00A5785D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C5B0A091EE2734B00A5785D /* ParkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParkTableViewController.h; path = Controller/ParkTableViewController.h; sourceTree = "<group>"; };
 		3C5B0A0A1EE2734B00A5785D /* ParkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParkTableViewController.m; path = Controller/ParkTableViewController.m; sourceTree = "<group>"; };
-		3C5B0A0F1EE2745300A5785D /* TableViewDataFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewDataFetcher.h; path = Libraries/TableViewDataFetcher.h; sourceTree = "<group>"; };
-		3C5B0A101EE2745300A5785D /* TableViewDataFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewDataFetcher.m; path = Libraries/TableViewDataFetcher.m; sourceTree = "<group>"; };
+		3C70341C1EE2896100F65218 /* TableViewDataFetchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewDataFetchController.h; path = Libraries/TableViewFetchDataController/Controller/TableViewDataFetchController.h; sourceTree = "<group>"; };
+		3C70341D1EE2896100F65218 /* TableViewDataFetchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewDataFetchController.m; path = Libraries/TableViewFetchDataController/Controller/TableViewDataFetchController.m; sourceTree = "<group>"; };
+		3C7034221EE289B600F65218 /* TableViewDataFetchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewDataFetchView.h; path = Libraries/TableViewFetchDataController/View/TableViewDataFetchView.h; sourceTree = "<group>"; };
+		3C7034231EE289B600F65218 /* TableViewDataFetchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewDataFetchView.m; path = Libraries/TableViewFetchDataController/View/TableViewDataFetchView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,10 +118,44 @@
 		3C5B0A0C1EE2737B00A5785D /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				3C5B0A0F1EE2745300A5785D /* TableViewDataFetcher.h */,
-				3C5B0A101EE2745300A5785D /* TableViewDataFetcher.m */,
+				3C70341B1EE2893700F65218 /* TableViewDataFetchController */,
 			);
 			name = Libraries;
+			sourceTree = "<group>";
+		};
+		3C70341B1EE2893700F65218 /* TableViewDataFetchController */ = {
+			isa = PBXGroup;
+			children = (
+				3C7034211EE2897B00F65218 /* Model */,
+				3C7034201EE2897300F65218 /* View */,
+				3C70341F1EE2896800F65218 /* Controller */,
+			);
+			name = TableViewDataFetchController;
+			sourceTree = "<group>";
+		};
+		3C70341F1EE2896800F65218 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3C70341C1EE2896100F65218 /* TableViewDataFetchController.h */,
+				3C70341D1EE2896100F65218 /* TableViewDataFetchController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		3C7034201EE2897300F65218 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3C7034221EE289B600F65218 /* TableViewDataFetchView.h */,
+				3C7034231EE289B600F65218 /* TableViewDataFetchView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		3C7034211EE2897B00F65218 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,10 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C7034241EE289B600F65218 /* TableViewDataFetchView.m in Sources */,
+				3C70341E1EE2896100F65218 /* TableViewDataFetchController.m in Sources */,
 				3C5B0A0B1EE2734B00A5785D /* ParkTableViewController.m in Sources */,
 				3C5B09F31EE25EBD00A5785D /* AppDelegate.m in Sources */,
 				3C5B09F01EE25EBD00A5785D /* main.m in Sources */,
-				3C5B0A111EE2745300A5785D /* TableViewDataFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +384,7 @@
 				3C5B0A041EE25EBD00A5785D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
