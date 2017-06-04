@@ -12,14 +12,14 @@
 
 @interface ParkTableViewController ()
 
-@property (strong, nonatomic) id<ParkTableViewDataModel> dataModel;
+@property (strong, nonatomic) id<ParkTableViewDataModelProtocol> dataModel;
 @property (strong, nonatomic) TableViewDataFetchController* tableViewController;
 
 @end
 
 @implementation ParkTableViewController
 
--(instancetype)initWithDataModel:(id<ParkTableViewDataModel>)dataModel {
+-(instancetype)initWithDataModel:(id<ParkTableViewDataModelProtocol>)dataModel {
     
     self = [super init];
     

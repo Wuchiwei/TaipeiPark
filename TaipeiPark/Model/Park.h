@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CellParkData.h"
+#import "CellParkDataProtocol.h"
 
-@interface Park : NSObject <CellParkData>
+@interface Park : NSObject <CellParkDataProtocol>
 
 @end

@@ -1,5 +1,5 @@
 //
-//  ParkTableViewDataModel.h
+//  ParkTableViewDataModelProtocol.h
 //  TaipeiPark
 //
 //  Created by WU CHIH WEI on 2017/6/3.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TableViewDataFetchProtocol.h"
 
-@protocol ParkTableViewDataModel <NSObject, TableViewDataFetchProtocol>
+@protocol ParkTableViewDataModelProtocol <NSObject, TableViewDataFetchProtocol>
 
 @required
 

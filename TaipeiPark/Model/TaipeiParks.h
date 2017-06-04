@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ParkTableViewDataModel.h"
+#import "ParkTableViewDataModelProtocol.h"
 
-@interface TaipeiParks : NSObject <ParkTableViewDataModel>
+@interface TaipeiParks : NSObject <ParkTableViewDataModelProtocol>
 
 
 @end

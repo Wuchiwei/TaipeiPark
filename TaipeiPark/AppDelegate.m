@@ -23,7 +23,7 @@
     
     self.window.frame = [UIScreen mainScreen].bounds;
     
-    id<ParkTableViewDataModel> dataModel = [[TaipeiParks alloc] init];
+    id<ParkTableViewDataModelProtocol> dataModel = [[TaipeiParks alloc] init];
     
     ParkTableViewController *controller = [[ParkTableViewController alloc] initWithDataModel:dataModel];
 
