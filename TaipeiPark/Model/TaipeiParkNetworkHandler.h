@@ -22,6 +22,7 @@ typedef enum {
 
 +(instancetype) sharedInstance;
 -(void)setLimit:(NSInteger) limit andOffset:(NSInteger) offset;
--(void)makeRequestWithMethod: (Method) method andEndPoint: (EndPoint) endPoint;
+-(void)makeRequestWithMethod: (Method) method andEndPoint: (EndPoint) endPoint
+              dataCompletion: (void(^)(NSData*)) completion;
 -(NSString*)getNSStringWithEndPoint: (EndPoint)endPoint;
 @end

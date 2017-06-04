@@ -26,7 +26,14 @@
     
     TaipeiParkNetworkHandler* networkHandler = [TaipeiParkNetworkHandler sharedInstance];
 
-    [networkHandler makeRequestWithMethod:GET andEndPoint:limitWithOffset];
+    [networkHandler makeRequestWithMethod:GET andEndPoint:limitWithOffset dataCompletion:^void(NSData *data) {
+        
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSDictionary *result = dict[@"result"];
+        NSDictionary *results = result[@"results"];
+        
+        NSLog(@"%@", results);
+    }];
 }
 
 @end

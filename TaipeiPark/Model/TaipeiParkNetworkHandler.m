@@ -50,7 +50,8 @@
     self.offset = offset;
 }
 
--(void)makeRequestWithMethod: (Method) method andEndPoint: (EndPoint) endPoint {
+-(void)makeRequestWithMethod: (Method) method andEndPoint: (EndPoint) endPoint
+              dataCompletion: (void(^)(NSData*)) completion {
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -76,11 +77,7 @@
                        return;
                    }
                    
-                   NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                   NSDictionary *result = dict[@"result"];
-                   NSDictionary *results = result[@"results"];
-                   
-                   NSLog(@"%@", results);
+                   completion(data);
                }];
     
     [task resume];
