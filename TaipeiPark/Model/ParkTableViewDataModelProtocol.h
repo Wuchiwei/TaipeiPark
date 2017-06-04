@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "TableViewDataFetchProtocol.h"
+#import "TaipeiParkNetworkHandler.h"
 
 @protocol ParkTableViewDataModelProtocol <NSObject, TableViewDataFetchProtocol>
 
 @required
+-(void) requestParks;
 
 @end

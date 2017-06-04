@@ -22,4 +22,11 @@
     return self;
 }
 
+-(void)requestParks {
+    
+    TaipeiParkNetworkHandler* networkHandler = [TaipeiParkNetworkHandler sharedInstance];
+
+    NSLog(@"%@", [networkHandler getNSStringWithEndPoint:limitWithOffset]);
+}
+
 @end

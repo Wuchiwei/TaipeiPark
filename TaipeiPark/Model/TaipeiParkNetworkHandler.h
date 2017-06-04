@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    limit = 0,
+    offset,
+    limitWithOffset
+} EndPoint;
+
 @interface TaipeiParkNetworkHandler : NSObject
+
 +(instancetype) sharedInstance;
+-(void)setLimit:(NSInteger) limit andOffset:(NSInteger) offset;
+-(void)makeRequestWithEndPoint: (EndPoint) endPoint;
+-(NSString*)getNSStringWithEndPoint: (EndPoint)endPoint;
 @end

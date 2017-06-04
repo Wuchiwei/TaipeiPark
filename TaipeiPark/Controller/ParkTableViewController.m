@@ -41,6 +41,8 @@
 -(void) setUp {
 
     [self addTableViewDataFetchController];
+    
+    [self testNetworkHandler];
 }
 
 -(void) addTableViewDataFetchController {
@@ -76,6 +78,11 @@
     }];
     
     [self.tableViewController didMoveToParentViewController:self];
+}
+
+-(void) testNetworkHandler {
+
+    [self.dataModel requestParks];
 }
 
 @end
