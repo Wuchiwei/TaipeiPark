@@ -1,5 +1,5 @@
 //
-//  CellParkDataProtocol.h
+//  ParkTableViewCellProtocol.h
 //  TaipeiPark
 //
 //  Created by WU CHIH WEI on 2017/6/3.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol CellParkDataProtocol <NSObject>
+@protocol ParkTableViewCellProtocol <NSObject>
 
 -(NSString*)getImageUrl;
 -(NSString*)getParkName;

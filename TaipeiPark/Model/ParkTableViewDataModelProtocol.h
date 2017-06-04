@@ -15,4 +15,6 @@
 @required
 -(void) requestParks;
 
+@optional
+-(NSString*) getDidRecieveDatasFromSeverNotificationString;
 @end

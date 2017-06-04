@@ -25,7 +25,7 @@
 		3C528BC21EE2E3C900C406CD /* ParkTableViewDataModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParkTableViewDataModelProtocol.h; path = Model/ParkTableViewDataModelProtocol.h; sourceTree = "<group>"; };
 		3C528BC61EE2E91700C406CD /* Park.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Park.h; path = Model/Park.h; sourceTree = "<group>"; };
 		3C528BC71EE2E91700C406CD /* Park.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Park.m; path = Model/Park.m; sourceTree = "<group>"; };
-		3C528BC91EE2E93500C406CD /* CellParkDataProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellParkDataProtocol.h; path = Model/CellParkDataProtocol.h; sourceTree = "<group>"; };
+		3C528BC91EE2E93500C406CD /* ParkTableViewCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParkTableViewCellProtocol.h; path = Model/ParkTableViewCellProtocol.h; sourceTree = "<group>"; };
 		3C528BCA1EE3BAF600C406CD /* TaipeiParkNetworkHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaipeiParkNetworkHandler.h; path = Model/TaipeiParkNetworkHandler.h; sourceTree = "<group>"; };
 		3C528BCB1EE3BAF600C406CD /* TaipeiParkNetworkHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaipeiParkNetworkHandler.m; path = Model/TaipeiParkNetworkHandler.m; sourceTree = "<group>"; };
 		3C5B09EB1EE25EBD00A5785D /* TaipeiPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaipeiPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +119,7 @@
 				3CE5A7061EE2C86A007F9986 /* TaipeiParks.m */,
 				3C528BC61EE2E91700C406CD /* Park.h */,
 				3C528BC71EE2E91700C406CD /* Park.m */,
-				3C528BC91EE2E93500C406CD /* CellParkDataProtocol.h */,
+				3C528BC91EE2E93500C406CD /* ParkTableViewCellProtocol.h */,
 				3C528BC21EE2E3C900C406CD /* ParkTableViewDataModelProtocol.h */,
 				3C528BCA1EE3BAF600C406CD /* TaipeiParkNetworkHandler.h */,
 				3C528BCB1EE3BAF600C406CD /* TaipeiParkNetworkHandler.m */,

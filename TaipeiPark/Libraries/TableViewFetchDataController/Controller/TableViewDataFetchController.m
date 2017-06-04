@@ -12,8 +12,10 @@
 @interface TableViewDataFetchController ()
 
 @property (nonatomic, strong) id<TableViewDataFetchProtocol> dataModel;
+@property (nonatomic, strong) TableViewDataFetchView *fetchView;
 @property (nonatomic, copy, nullable) void(^cellHandler)(id, UITableViewCell*);
 @property (nonatomic, strong) NSString* cellIdentifier;
+@property CGFloat rowHeight;
 @end
 
 @implementation TableViewDataFetchController
@@ -23,9 +25,6 @@
     
     if (self) {
         self.dataModel = dataModel;
-        self.cellHandler = ^(id object, UITableViewCell *cell) {
-
-        };
     }
     
     return self;
@@ -44,21 +43,21 @@
 
 -(void) setUpFetchView {
     
-    TableViewDataFetchView* fetchView = [[TableViewDataFetchView alloc] initWithDelegate: self];
+    self.fetchView = [[TableViewDataFetchView alloc] initWithDelegate: self];
     
-    [fetchView cellIdentifier:self.cellIdentifier];
+    [self.fetchView cellIdentifier:self.cellIdentifier];
     
-    fetchView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.fetchView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    [self.view addSubview:fetchView];
+    [self.view addSubview:self.fetchView];
     
-    NSLayoutConstraint *top = [fetchView.topAnchor constraintEqualToAnchor:self.topLayoutGuide.bottomAnchor];
+    NSLayoutConstraint *top = [self.fetchView.topAnchor constraintEqualToAnchor:self.topLayoutGuide.bottomAnchor];
     
-    NSLayoutConstraint *leading = [fetchView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor];
+    NSLayoutConstraint *leading = [self.fetchView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor];
     
-    NSLayoutConstraint *trailing = [fetchView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor];
+    NSLayoutConstraint *trailing = [self.fetchView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor];
     
-    NSLayoutConstraint *bottom = [fetchView.bottomAnchor constraintEqualToAnchor:self.bottomLayoutGuide.topAnchor];
+    NSLayoutConstraint *bottom = [self.fetchView.bottomAnchor constraintEqualToAnchor:self.bottomLayoutGuide.topAnchor];
     
     [self.view addConstraints:[[NSArray alloc] initWithObjects:top, leading, trailing, bottom, nil]];
 }
@@ -80,6 +79,15 @@
     handler(self.view);
 }
 
+-(void)heightForRow:(CGFloat)height {
+    
+    self.rowHeight = height;
+}
+
+-(void)reloadTableView {
+    [self.fetchView.tableView reloadData];
+}
+// MARK: TableView DataSource and Delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return [self.dataModel numberOfSectionInTableView];
@@ -97,12 +105,20 @@
 
     id object = [self.dataModel objectForCellAtRow:indexPath.row section:indexPath.section];
 
-    self.cellHandler(object, cell);
+    if (self.cellHandler) {
+    
+        self.cellHandler(object, cell);
+    }
 
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (self.rowHeight > 0) {
+        
+        return self.rowHeight;
+    }
     
     return UITableViewAutomaticDimension;
 }

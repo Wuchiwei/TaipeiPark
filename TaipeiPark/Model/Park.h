@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CellParkDataProtocol.h"
+#import "ParkTableViewCellProtocol.h"
 
-@interface Park : NSObject <CellParkDataProtocol>
+@interface Park : NSObject <ParkTableViewCellProtocol>
+
++(instancetype) createParkWithDictionary: (NSDictionary*) dict;
 
 @end

@@ -54,10 +54,10 @@
               dataCompletion: (void(^)(NSData*)) completion {
     
     NSURLSession *session = [NSURLSession sharedSession];
+    
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
-    NSURL *url = [[NSURL alloc]
-                  initWithString:[self.baseURI stringByAppendingString:[self getNSStringWithEndPoint:endPoint]]];
+    NSURL *url = [[NSURL alloc] initWithString:[self.baseURI stringByAppendingString:[self getNSStringWithEndPoint:endPoint]]];
     
     if (url) {
         request.URL = url;
@@ -68,17 +68,18 @@
     
     request.HTTPMethod = @"GET";
     
-    NSURLSessionTask *task =
-    [session dataTaskWithRequest:request
-               completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
-                   if(error) {
-                       printf("Here is error");
-                       return;
-                   }
-                   
-                   completion(data);
-               }];
+        if(error) {
+            //Error handle
+            printf("Here is error");
+            return;
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(data);
+        });
+    }];
     
     [task resume];
 }

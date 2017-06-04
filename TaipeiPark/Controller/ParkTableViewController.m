@@ -9,6 +9,7 @@
 #import "ParkTableViewController.h"
 #import "TableViewDataFetchController.h"
 #import "ParkTableViewCell.h"
+#import "ParkTableViewCellProtocol.h"
 
 @interface ParkTableViewController ()
 
@@ -42,7 +43,9 @@
 
     [self addTableViewDataFetchController];
     
-    [self testNetworkHandler];
+    [self testNetworkHandler]; //remove
+    
+    [self registeAsObserve];
 }
 
 -(void) addTableViewDataFetchController {
@@ -77,7 +80,39 @@
         }
     }];
     
+    [self.tableViewController cellForRowHandler:^(id object, UITableViewCell *cell) {
+        
+        if ([object conformsToProtocol:@protocol(ParkTableViewCellProtocol)]) {
+            
+            if ([cell isKindOfClass:[ParkTableViewCell class]]) {
+                
+                ParkTableViewCell *parkCell = cell;
+                
+                id<ParkTableViewCellProtocol> parkObject = object;
+                
+                parkCell.parkNameLabel.text = [parkObject getParkName];
+                parkCell.parkVarietyLabel.text = [parkObject getParkVariety];
+                parkCell.parkNoteLabel.text = [parkObject getParkNote];
+            }
+        }
+        
+    }];
+    
     [self.tableViewController didMoveToParentViewController:self];
+}
+
+-(void) registeAsObserve {
+
+    NSString *notificationName = [self.dataModel getDidRecieveDatasFromSeverNotificationString];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:notificationName object:nil];
+}
+
+-(void) reloadData {
+    
+    NSLog(@"get data message");
+    
+    [self.tableViewController reloadTableView];
 }
 
 -(void) testNetworkHandler {
