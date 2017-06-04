@@ -26,7 +26,7 @@
     
     TaipeiParkNetworkHandler* networkHandler = [TaipeiParkNetworkHandler sharedInstance];
 
-    NSLog(@"%@", [networkHandler getNSStringWithEndPoint:limitWithOffset]);
+    [networkHandler makeRequestWithMethod:GET andEndPoint:limitWithOffset];
 }
 
 @end

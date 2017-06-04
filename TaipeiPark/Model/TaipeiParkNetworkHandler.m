@@ -50,8 +50,40 @@
     self.offset = offset;
 }
 
--(void)makeRequestWithEndPoint:(EndPoint)endPoint {
+-(void)makeRequestWithMethod: (Method) method andEndPoint: (EndPoint) endPoint {
     
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    
+    NSURL *url = [[NSURL alloc]
+                  initWithString:[self.baseURI stringByAppendingString:[self getNSStringWithEndPoint:endPoint]]];
+    
+    if (url) {
+        request.URL = url;
+    } else {
+        //Error Handle
+        return;
+    }
+    
+    request.HTTPMethod = @"GET";
+    
+    NSURLSessionTask *task =
+    [session dataTaskWithRequest:request
+               completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+                   if(error) {
+                       printf("Here is error");
+                       return;
+                   }
+                   
+                   NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                   NSDictionary *result = dict[@"result"];
+                   NSDictionary *results = result[@"results"];
+                   
+                   NSLog(@"%@", results);
+               }];
+    
+    [task resume];
 }
 
 -(NSString*)getNSStringWithEndPoint: (EndPoint)endPoint {
@@ -67,7 +99,7 @@
     switch (endPoint) {
         case limit:
             
-            endString = @"&limit";
+            endString = @"&limit=";
 
             [path appendString:endString];
  
@@ -77,7 +109,7 @@
         
         case offset:
             
-            endString = @"&offset";
+            endString = @"&offset=";
             
             [path appendString:endString];
             

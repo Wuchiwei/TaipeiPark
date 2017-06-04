@@ -14,10 +14,14 @@ typedef enum {
     limitWithOffset
 } EndPoint;
 
+typedef enum {
+    GET = 0
+} Method;
+
 @interface TaipeiParkNetworkHandler : NSObject
 
 +(instancetype) sharedInstance;
 -(void)setLimit:(NSInteger) limit andOffset:(NSInteger) offset;
--(void)makeRequestWithEndPoint: (EndPoint) endPoint;
+-(void)makeRequestWithMethod: (Method) method andEndPoint: (EndPoint) endPoint;
 -(NSString*)getNSStringWithEndPoint: (EndPoint)endPoint;
 @end
