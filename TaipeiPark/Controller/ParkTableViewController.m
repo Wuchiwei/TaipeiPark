@@ -15,6 +15,8 @@
 
 @property (strong, nonatomic) id<ParkTableViewDataModelProtocol> dataModel;
 @property (strong, nonatomic) TableViewDataFetchController* tableViewController;
+@property (strong, nonatomic) NSCache *cache;
+@property (strong, nonatomic) NSMutableDictionary *downloadedURLDict;
 
 @end
 
@@ -26,7 +28,12 @@
     if (self) {
         
         self.dataModel = dataModel;
+        
+        self.cache = [[NSCache alloc] init];
+        
+        self.downloadedURLDict = [[NSMutableDictionary alloc] init];
     }
+    
     return self;
 }
 
@@ -81,6 +88,8 @@
     
     [self.tableViewController cellForRowHandler:^(id object, UITableViewCell* cell, UITableView* myTableView, NSIndexPath *indexPath) {
         
+        __weak ParkTableViewController* weakSelf = self;
+        
         if ([object conformsToProtocol:@protocol(ParkTableViewCellProtocol)]) {
             
             if ([cell isKindOfClass:[ParkTableViewCell class]]) {
@@ -95,19 +104,47 @@
                 
                 parkCell.parkNoteLabel.text = [parkObject getParkNote];
                 
-                __weak ParkTableViewController* weakSelf = self;
+                UIImage *cacheImage = [weakSelf.cache objectForKey:indexPath];
                 
+                if (cacheImage) {
+                    
+                    parkCell.parkImageView.image = cacheImage;
+                    
+                    return;
+                    
+                } else {
+                    
+                    parkCell.parkImageView.image = nil;
+                }
+                
+                if ([weakSelf.downloadedURLDict objectForKey:indexPath]) {
+                    
+                    return;
+                }
+
                 __weak UITableView *weakTableView = myTableView;
 
                 dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+                    
+                    NSLog(@"Request download image at row %li",(long)indexPath.row);
+                    
+                    [weakSelf.downloadedURLDict setObject:parkObject.getImageUrl forKey:indexPath];
                     
                     [weakSelf.dataModel requestImageWithRow:indexPath.row andSection:indexPath.section completion:^(NSData *data) {
                         
                         UIImage *image = [UIImage imageWithData:data];
                         
-                        ParkTableViewCell *reloadCell = (ParkTableViewCell*)[weakTableView cellForRowAtIndexPath:indexPath];
+                        if (image) {
+                            
+                            [weakSelf.cache setObject:image forKey: indexPath];
                         
-                        NSLog(@"%li",(long)indexPath.row);
+                        } else {
+                            
+                            //Error Handle
+                            return;
+                        }
+
+                        ParkTableViewCell *reloadCell = (ParkTableViewCell*)[weakTableView cellForRowAtIndexPath:indexPath];
                         
                         if (reloadCell) {
                             
