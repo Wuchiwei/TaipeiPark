@@ -81,6 +81,14 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:self.notificationName object:self];
 }
 
+-(void) requestImageWithRow:(NSInteger)row andSection:(NSInteger)section completion:(void(^)(NSData*))completion {
+    
+    NSString *imageString = [self.parks[row] getImageUrl];
+    
+    TaipeiParkNetworkHandler* networkHandler = [TaipeiParkNetworkHandler sharedInstance];
+    
+    [networkHandler downloadDataWith:imageString completion:completion];
+}
 @end
 
 

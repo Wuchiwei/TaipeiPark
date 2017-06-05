@@ -21,7 +21,6 @@
 @implementation ParkTableViewController
 
 -(instancetype)initWithDataModel:(id<ParkTableViewDataModelProtocol>)dataModel {
-    
     self = [super init];
     
     if (self) {
@@ -80,19 +79,43 @@
         }
     }];
     
-    [self.tableViewController cellForRowHandler:^(id object, UITableViewCell *cell) {
+    [self.tableViewController cellForRowHandler:^(id object, UITableViewCell* cell, UITableView* myTableView, NSIndexPath *indexPath) {
         
         if ([object conformsToProtocol:@protocol(ParkTableViewCellProtocol)]) {
             
             if ([cell isKindOfClass:[ParkTableViewCell class]]) {
                 
-                ParkTableViewCell *parkCell = cell;
+                ParkTableViewCell *parkCell = (ParkTableViewCell*) cell;
                 
                 id<ParkTableViewCellProtocol> parkObject = object;
                 
                 parkCell.parkNameLabel.text = [parkObject getParkName];
+                
                 parkCell.parkVarietyLabel.text = [parkObject getParkVariety];
+                
                 parkCell.parkNoteLabel.text = [parkObject getParkNote];
+                
+                __weak ParkTableViewController* weakSelf = self;
+                
+                __weak UITableView *weakTableView = myTableView;
+
+                dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+                    
+                    [weakSelf.dataModel requestImageWithRow:indexPath.row andSection:indexPath.section completion:^(NSData *data) {
+                        
+                        UIImage *image = [UIImage imageWithData:data];
+                        
+                        ParkTableViewCell *reloadCell = (ParkTableViewCell*)[weakTableView cellForRowAtIndexPath:indexPath];
+                        
+                        NSLog(@"%li",(long)indexPath.row);
+                        
+                        if (reloadCell) {
+                            
+                            reloadCell.parkImageView.image = image;
+                        }
+                    }];
+                    
+                });
             }
         }
         

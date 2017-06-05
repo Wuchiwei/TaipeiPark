@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) id<TableViewDataFetchProtocol> dataModel;
 @property (nonatomic, strong) TableViewDataFetchView *fetchView;
-@property (nonatomic, copy, nullable) void(^cellHandler)(id, UITableViewCell*);
+@property (nonatomic, copy, nullable) void(^cellHandler)(id, UITableViewCell*, UITableView*, NSIndexPath*);
 @property (nonatomic, strong) NSString* cellIdentifier;
 @property CGFloat rowHeight;
 @end
@@ -69,7 +69,7 @@
     [self setUp];
 }
 
--(void)cellForRowHandler:(void(^)(id object, UITableViewCell* cell)) handler {
+-(void)cellForRowHandler:(void(^)(id object, UITableViewCell* cell, UITableView* myTableView, NSIndexPath *indexPath)) handler {
 
     self.cellHandler = handler;
 }
@@ -107,7 +107,7 @@
 
     if (self.cellHandler) {
     
-        self.cellHandler(object, cell);
+        self.cellHandler(object, cell, tableView, indexPath);
     }
 
     return cell;

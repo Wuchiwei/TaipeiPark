@@ -84,6 +84,36 @@
     [task resume];
 }
 
+-(void)downloadDataWith:(NSString*)urlString completion: (void(^)(NSData*)) completion {
+
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURL *imageURL = [NSURL URLWithString:urlString];
+    
+    if (imageURL) {
+        
+        NSURLSessionTask *task = [session downloadTaskWithURL:imageURL completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+           
+            if (error) {
+                //Error handle
+                NSLog(@"%@", error);
+            }
+            
+            NSData *data = [NSData dataWithContentsOfURL:imageURL];
+            
+            if (data) {
+                
+                dispatch_async(dispatch_get_main_queue(), ^(){
+                    completion(data);
+                });
+            }
+
+        }];
+        
+        [task resume];
+    }
+}
+
 -(NSString*)getNSStringWithEndPoint: (EndPoint)endPoint {
     
     NSString *endString;

@@ -11,7 +11,8 @@
 typedef enum {
     limit = 0,
     offset,
-    limitWithOffset
+    limitWithOffset,
+    none
 } EndPoint;
 
 typedef enum {
@@ -21,8 +22,9 @@ typedef enum {
 @interface TaipeiParkNetworkHandler : NSObject
 
 +(instancetype) sharedInstance;
--(void)setLimit:(NSInteger) limit andOffset:(NSInteger) offset;
--(void)makeRequestWithMethod: (Method) method andEndPoint: (EndPoint) endPoint
-              dataCompletion: (void(^)(NSData*)) completion;
--(NSString*)getNSStringWithEndPoint: (EndPoint)endPoint;
+-(void)setLimit:(NSInteger)limit andOffset:(NSInteger)offset;
+-(void)makeRequestWithMethod:(Method)method andEndPoint:(EndPoint)endPoint dataCompletion: (void(^)(NSData*)) completion;
+-(NSString*)getNSStringWithEndPoint:(EndPoint)endPoint;
+-(void)downloadDataWith:(NSString*)urlString completion:(void(^)(NSData*))completion;
+
 @end

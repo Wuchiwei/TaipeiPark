@@ -16,7 +16,7 @@
 
 -(void)cellIdentifiers:(NSString*) identifier;
 -(void)heightForRow: (CGFloat) height;
--(void)cellForRowHandler:(void(^)(id object, UITableViewCell* cell)) handler;
+-(void)cellForRowHandler:(void(^)(id object, UITableViewCell* cell, UITableView* myTableView, NSIndexPath *indexPath)) handler;
 -(void)arrangeViewWithHandler:(void(^)(UIView* childView)) handler;
 -(void)reloadTableView;
 
