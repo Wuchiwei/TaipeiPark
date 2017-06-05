@@ -13,6 +13,7 @@
 @protocol ParkTableViewDataModelProtocol <NSObject, TableViewDataFetchProtocol>
 
 @required
+
 -(void) requestParks;
 -(void) requestImageWithRow:(NSInteger)row andSection:(NSInteger)section completion:(void(^)(NSData*))completion;
 @optional

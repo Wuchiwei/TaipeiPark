@@ -13,9 +13,7 @@
 		3C5B09F31EE25EBD00A5785D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B09F21EE25EBD00A5785D /* AppDelegate.m */; };
 		3C5B09FB1EE25EBD00A5785D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B09FA1EE25EBD00A5785D /* Assets.xcassets */; };
 		3C5B09FE1EE25EBD00A5785D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B09FC1EE25EBD00A5785D /* LaunchScreen.storyboard */; };
-		3C5B0A0B1EE2734B00A5785D /* ParkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5B0A0A1EE2734B00A5785D /* ParkTableViewController.m */; };
-		3C70341E1EE2896100F65218 /* TableViewDataFetchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C70341D1EE2896100F65218 /* TableViewDataFetchController.m */; };
-		3C7034241EE289B600F65218 /* TableViewDataFetchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7034231EE289B600F65218 /* TableViewDataFetchView.m */; };
+		3C80D7281EE561A5007579AB /* ParkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C80D7271EE561A5007579AB /* ParkTableViewController.m */; };
 		3CE5A7071EE2C86A007F9986 /* TaipeiParks.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE5A7061EE2C86A007F9986 /* TaipeiParks.m */; };
 		3CE5A70B1EE2DB2B007F9986 /* ParkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE5A7091EE2DB2B007F9986 /* ParkTableViewCell.m */; };
 		3CE5A70C1EE2DB2B007F9986 /* ParkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE5A70A1EE2DB2B007F9986 /* ParkTableViewCell.xib */; };
@@ -35,15 +33,9 @@
 		3C5B09FA1EE25EBD00A5785D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C5B09FD1EE25EBD00A5785D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C5B09FF1EE25EBD00A5785D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3C5B0A091EE2734B00A5785D /* ParkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParkTableViewController.h; path = Controller/ParkTableViewController.h; sourceTree = "<group>"; };
-		3C5B0A0A1EE2734B00A5785D /* ParkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParkTableViewController.m; path = Controller/ParkTableViewController.m; sourceTree = "<group>"; };
-		3C70341C1EE2896100F65218 /* TableViewDataFetchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewDataFetchController.h; path = Libraries/TableViewFetchDataController/Controller/TableViewDataFetchController.h; sourceTree = "<group>"; };
-		3C70341D1EE2896100F65218 /* TableViewDataFetchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewDataFetchController.m; path = Libraries/TableViewFetchDataController/Controller/TableViewDataFetchController.m; sourceTree = "<group>"; };
-		3C7034221EE289B600F65218 /* TableViewDataFetchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewDataFetchView.h; path = Libraries/TableViewFetchDataController/View/TableViewDataFetchView.h; sourceTree = "<group>"; };
-		3C7034231EE289B600F65218 /* TableViewDataFetchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewDataFetchView.m; path = Libraries/TableViewFetchDataController/View/TableViewDataFetchView.m; sourceTree = "<group>"; };
-		3C7034251EE28AC400F65218 /* TableViewDataFetchProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewDataFetchProtocol.h; path = Libraries/TableViewFetchDataController/Model/TableViewDataFetchProtocol.h; sourceTree = "<group>"; };
-		3CE5A6F81EE29427007F9986 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Extension.h"; path = "Extension/UIView+Extension.h"; sourceTree = "<group>"; };
-		3CE5A7021EE2A7A0007F9986 /* DataFetchTableViewCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataFetchTableViewCellProtocol.h; path = Libraries/TableViewFetchDataController/Model/DataFetchTableViewCellProtocol.h; sourceTree = "<group>"; };
+		3C80D7261EE561A5007579AB /* ParkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParkTableViewController.h; path = Controller/ParkTableViewController.h; sourceTree = "<group>"; };
+		3C80D7271EE561A5007579AB /* ParkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParkTableViewController.m; path = Controller/ParkTableViewController.m; sourceTree = "<group>"; };
+		3C80D7291EE56D08007579AB /* TableViewDataFetchProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewDataFetchProtocol.h; path = Model/TableViewDataFetchProtocol.h; sourceTree = "<group>"; };
 		3CE5A7051EE2C86A007F9986 /* TaipeiParks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaipeiParks.h; path = Model/TaipeiParks.h; sourceTree = "<group>"; };
 		3CE5A7061EE2C86A007F9986 /* TaipeiParks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaipeiParks.m; path = Model/TaipeiParks.m; sourceTree = "<group>"; };
 		3CE5A7081EE2DB2B007F9986 /* ParkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParkTableViewCell.h; path = View/ParkTableViewCell.h; sourceTree = "<group>"; };
@@ -81,8 +73,6 @@
 		3C5B09ED1EE25EBD00A5785D /* TaipeiPark */ = {
 			isa = PBXGroup;
 			children = (
-				3CE5A6F71EE293FD007F9986 /* Extension */,
-				3C5B0A0C1EE2737B00A5785D /* Libraries */,
 				3C5B0A081EE2724000A5785D /* AppDelegate */,
 				3C5B0A061EE2722200A5785D /* Model */,
 				3C5B0A071EE2722A00A5785D /* View */,
@@ -106,8 +96,8 @@
 		3C5B0A051EE2721500A5785D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3C5B0A091EE2734B00A5785D /* ParkTableViewController.h */,
-				3C5B0A0A1EE2734B00A5785D /* ParkTableViewController.m */,
+				3C80D7261EE561A5007579AB /* ParkTableViewController.h */,
+				3C80D7271EE561A5007579AB /* ParkTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -119,7 +109,7 @@
 				3CE5A7061EE2C86A007F9986 /* TaipeiParks.m */,
 				3C528BC61EE2E91700C406CD /* Park.h */,
 				3C528BC71EE2E91700C406CD /* Park.m */,
-				3C528BC91EE2E93500C406CD /* ParkTableViewCellProtocol.h */,
+				3C80D7291EE56D08007579AB /* TableViewDataFetchProtocol.h */,
 				3C528BC21EE2E3C900C406CD /* ParkTableViewDataModelProtocol.h */,
 				3C528BCA1EE3BAF600C406CD /* TaipeiParkNetworkHandler.h */,
 				3C528BCB1EE3BAF600C406CD /* TaipeiParkNetworkHandler.m */,
@@ -133,6 +123,7 @@
 				3CE5A7081EE2DB2B007F9986 /* ParkTableViewCell.h */,
 				3CE5A7091EE2DB2B007F9986 /* ParkTableViewCell.m */,
 				3CE5A70A1EE2DB2B007F9986 /* ParkTableViewCell.xib */,
+				3C528BC91EE2E93500C406CD /* ParkTableViewCellProtocol.h */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -144,59 +135,6 @@
 				3C5B09F21EE25EBD00A5785D /* AppDelegate.m */,
 			);
 			name = AppDelegate;
-			sourceTree = "<group>";
-		};
-		3C5B0A0C1EE2737B00A5785D /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				3C70341B1EE2893700F65218 /* TableViewDataFetchController */,
-			);
-			name = Libraries;
-			sourceTree = "<group>";
-		};
-		3C70341B1EE2893700F65218 /* TableViewDataFetchController */ = {
-			isa = PBXGroup;
-			children = (
-				3C7034211EE2897B00F65218 /* Model */,
-				3C7034201EE2897300F65218 /* View */,
-				3C70341F1EE2896800F65218 /* Controller */,
-			);
-			name = TableViewDataFetchController;
-			sourceTree = "<group>";
-		};
-		3C70341F1EE2896800F65218 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				3C70341C1EE2896100F65218 /* TableViewDataFetchController.h */,
-				3C70341D1EE2896100F65218 /* TableViewDataFetchController.m */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
-		3C7034201EE2897300F65218 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3C7034221EE289B600F65218 /* TableViewDataFetchView.h */,
-				3C7034231EE289B600F65218 /* TableViewDataFetchView.m */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		3C7034211EE2897B00F65218 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3C7034251EE28AC400F65218 /* TableViewDataFetchProtocol.h */,
-				3CE5A7021EE2A7A0007F9986 /* DataFetchTableViewCellProtocol.h */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		3CE5A6F71EE293FD007F9986 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				3CE5A6F81EE29427007F9986 /* UIView+Extension.h */,
-			);
-			name = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,15 +209,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C7034241EE289B600F65218 /* TableViewDataFetchView.m in Sources */,
 				3C528BC81EE2E91700C406CD /* Park.m in Sources */,
 				3C528BCC1EE3BAF600C406CD /* TaipeiParkNetworkHandler.m in Sources */,
-				3C70341E1EE2896100F65218 /* TableViewDataFetchController.m in Sources */,
 				3CE5A70B1EE2DB2B007F9986 /* ParkTableViewCell.m in Sources */,
-				3C5B0A0B1EE2734B00A5785D /* ParkTableViewController.m in Sources */,
 				3C5B09F31EE25EBD00A5785D /* AppDelegate.m in Sources */,
 				3C5B09F01EE25EBD00A5785D /* main.m in Sources */,
 				3CE5A7071EE2C86A007F9986 /* TaipeiParks.m in Sources */,
+				3C80D7281EE561A5007579AB /* ParkTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
