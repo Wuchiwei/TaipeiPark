@@ -66,7 +66,7 @@
         return;
     }
     
-    request.HTTPMethod = @"GET";
+    request.HTTPMethod = [self getMethodString:method];
     
     NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
@@ -81,12 +81,14 @@
         });
     }];
     
+    task.priority = NSURLSessionTaskPriorityHigh;
+    
     [task resume];
 }
 
 -(void)downloadDataWith:(NSString*)urlString completion: (void(^)(NSData*)) completion {
 
-    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     
     NSURL *imageURL = [NSURL URLWithString:urlString];
     
@@ -160,6 +162,21 @@
     return path;
 }
 
+-(NSString*)getMethodString: (Method) method {
+    NSString *methodString = @"";
+    
+    switch (method) {
+    
+        case GET:
+            methodString = @"GET";
+            break;
+            
+        default:
+            break;
+    }
+    
+    return methodString;
+}
 @end
 
 

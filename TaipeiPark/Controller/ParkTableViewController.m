@@ -200,8 +200,6 @@
     
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         
-        NSLog(@"Request download image at row %li",(long)indexPath.row);
-        
         [weakSelf.downloadedURLDict setObject: imageURL forKey:indexPath];
         
         [weakSelf.dataModel requestImageWithRow:indexPath.row andSection:indexPath.section completion:^(NSData *data) {
@@ -242,7 +240,7 @@
     
     float h = size.height;
     
-    float reloadDistance = 50;
+    float reloadDistance = 30;
     
     if(y > h + reloadDistance && !self.indicatorView) {
         
@@ -263,7 +261,10 @@
 
         [self.indicatorView startAnimating];
 
-        [self.dataModel requestParks];
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+            
+            [self.dataModel requestParks];
+        });
     }
     
 }
