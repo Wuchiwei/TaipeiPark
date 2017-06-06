@@ -11,6 +11,9 @@
 
 @interface ParkTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, copy, nullable) void(^loadDataCompletion)();
+
 -(instancetype)initWithDataModel: (id<ParkTableViewDataModelProtocol>) dataModel;
+-(void) loadData;
 
 @end

@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "ParkTableViewController.h"
-#import "TaipeiParks.h"
 #import "IndicatorViewController.h"
 
 @interface AppDelegate ()
@@ -23,10 +21,6 @@
     self.window = [[UIWindow alloc] init];
     
     self.window.frame = [UIScreen mainScreen].bounds;
-    
-//    id<ParkTableViewDataModelProtocol> dataModel = [[TaipeiParks alloc] init];
-//    
-//    ParkTableViewController *controller = [[ParkTableViewController alloc] initWithDataModel:dataModel];
 
     IndicatorViewController *controller = [[IndicatorViewController alloc] init];
     

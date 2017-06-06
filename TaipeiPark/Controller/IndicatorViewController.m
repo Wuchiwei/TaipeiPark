@@ -7,10 +7,14 @@
 //
 
 #import "IndicatorViewController.h"
+#import "ParkTableViewController.h"
+#import "TaipeiParks.h"
+#import "AppDelegate.h"
 
 @interface IndicatorViewController ()
 
 @property (strong, nonatomic) UIActivityIndicatorView* indicatorView;
+@property (strong, nonatomic) ParkTableViewController *controller;
 
 @end
 
@@ -37,7 +41,22 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    
+    id<ParkTableViewDataModelProtocol> dataModel = [[TaipeiParks alloc] init];
+
+    self.controller = [[ParkTableViewController alloc] initWithDataModel:dataModel];
+
+    __weak ParkTableViewController* weakController = self.controller;
+
+    self.controller.loadDataCompletion = ^{
+        
+        AppDelegate *appDelegate = (AppDelegate*) [UIApplication sharedApplication].delegate;
+        
+        UIWindow *window = appDelegate.window;
+        
+        [window setRootViewController:weakController];
+    };
+
+    [self.controller loadData];
 }
 
 -(void) setUp {

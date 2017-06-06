@@ -26,6 +26,12 @@
     [self setUp];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 -(instancetype)initWithDataModel: (id<ParkTableViewDataModelProtocol>) dataModel {
     
     self = [super init];
@@ -40,6 +46,16 @@
     return self;
 }
 
+-(void)loadData {
+    
+    [self registeAsObserver];
+    
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+        
+        [self.dataModel requestParks];
+    });
+}
+
 -(void)dealloc {
     
     [NSNotificationCenter.defaultCenter removeObserver:self];
@@ -50,10 +66,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setUpTableView];
-    
-    [self registeAsObserver];
-    
-    [self.dataModel requestParks];
 }
 
 -(void) setUpTableView {
@@ -93,6 +105,11 @@
 -(void) reloadData {
     
     [self checkIndicatorView];
+    
+    if (self.loadDataCompletion) {
+        
+        self.loadDataCompletion();
+    }
     
     [self.tableView reloadData];
 }
