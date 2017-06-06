@@ -13,7 +13,7 @@
 
 @property (nonatomic, copy, nullable) void(^loadDataCompletion)();
 
--(instancetype)initWithDataModel: (id<ParkTableViewDataModelProtocol>) dataModel;
+-(nonnull instancetype)initWithDataModel: (nonnull id<ParkTableViewDataModelProtocol>) dataModel;
 -(void) loadData;
 
 @end
