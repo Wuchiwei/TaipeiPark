@@ -15,6 +15,8 @@
 		3C5B09FE1EE25EBD00A5785D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C5B09FC1EE25EBD00A5785D /* LaunchScreen.storyboard */; };
 		3C80D7281EE561A5007579AB /* ParkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C80D7271EE561A5007579AB /* ParkTableViewController.m */; };
 		3CBCF2321EE652E600049163 /* IndicatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF2311EE652E600049163 /* IndicatorViewController.m */; };
+		3CBCF2351EE65E6900049163 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBCF2341EE65E6900049163 /* SystemConfiguration.framework */; };
+		3CBCF2381EE65F9900049163 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF2371EE65F9900049163 /* Reachability.m */; };
 		3CE5A7071EE2C86A007F9986 /* TaipeiParks.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE5A7061EE2C86A007F9986 /* TaipeiParks.m */; };
 		3CE5A70B1EE2DB2B007F9986 /* ParkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE5A7091EE2DB2B007F9986 /* ParkTableViewCell.m */; };
 		3CE5A70C1EE2DB2B007F9986 /* ParkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE5A70A1EE2DB2B007F9986 /* ParkTableViewCell.xib */; };
@@ -39,6 +41,9 @@
 		3C80D7291EE56D08007579AB /* TableViewDataFetchProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewDataFetchProtocol.h; path = Model/TableViewDataFetchProtocol.h; sourceTree = "<group>"; };
 		3CBCF2301EE652E600049163 /* IndicatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndicatorViewController.h; path = Controller/IndicatorViewController.h; sourceTree = "<group>"; };
 		3CBCF2311EE652E600049163 /* IndicatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndicatorViewController.m; path = Controller/IndicatorViewController.m; sourceTree = "<group>"; };
+		3CBCF2341EE65E6900049163 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3CBCF2361EE65F9900049163 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Controller/Reachability.h; sourceTree = "<group>"; };
+		3CBCF2371EE65F9900049163 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Controller/Reachability.m; sourceTree = "<group>"; };
 		3CE5A7051EE2C86A007F9986 /* TaipeiParks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaipeiParks.h; path = Model/TaipeiParks.h; sourceTree = "<group>"; };
 		3CE5A7061EE2C86A007F9986 /* TaipeiParks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaipeiParks.m; path = Model/TaipeiParks.m; sourceTree = "<group>"; };
 		3CE5A7081EE2DB2B007F9986 /* ParkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParkTableViewCell.h; path = View/ParkTableViewCell.h; sourceTree = "<group>"; };
@@ -51,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CBCF2351EE65E6900049163 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +68,7 @@
 			children = (
 				3C5B09ED1EE25EBD00A5785D /* TaipeiPark */,
 				3C5B09EC1EE25EBD00A5785D /* Products */,
+				3CBCF2331EE65E6900049163 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +110,8 @@
 				3C80D7271EE561A5007579AB /* ParkTableViewController.m */,
 				3CBCF2301EE652E600049163 /* IndicatorViewController.h */,
 				3CBCF2311EE652E600049163 /* IndicatorViewController.m */,
+				3CBCF2361EE65F9900049163 /* Reachability.h */,
+				3CBCF2371EE65F9900049163 /* Reachability.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -140,6 +149,14 @@
 				3C5B09F21EE25EBD00A5785D /* AppDelegate.m */,
 			);
 			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		3CBCF2331EE65E6900049163 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CBCF2341EE65E6900049163 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +238,7 @@
 				3C5B09F31EE25EBD00A5785D /* AppDelegate.m in Sources */,
 				3C5B09F01EE25EBD00A5785D /* main.m in Sources */,
 				3CE5A7071EE2C86A007F9986 /* TaipeiParks.m in Sources */,
+				3CBCF2381EE65F9900049163 /* Reachability.m in Sources */,
 				3C80D7281EE561A5007579AB /* ParkTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

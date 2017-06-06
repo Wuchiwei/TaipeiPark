@@ -10,11 +10,13 @@
 #import "ParkTableViewController.h"
 #import "TaipeiParks.h"
 #import "AppDelegate.h"
+#import "Reachability.h"
 
 @interface IndicatorViewController ()
 
 @property (strong, nonatomic) UIActivityIndicatorView* indicatorView;
 @property (strong, nonatomic) ParkTableViewController *controller;
+@property (strong, nonatomic) NSTimer *timer;
 
 @end
 
@@ -32,6 +34,11 @@
     return self;
 }
 
+- (void)dealloc {
+    
+    [self.timer invalidate];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -41,12 +48,53 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
+    [self checkInternetStatus];
+}
+
+-(void)checkInternetStatus {
+    
+    if (self.timer) {
+        
+        [self.timer invalidate];
+    }
+    
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    
+    if (networkStatus == NotReachable) {
+    
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"No Internet connect" preferredStyle:UIAlertControllerStyleAlert];
+        
+        __weak IndicatorViewController *weakSelf = self;
+        
+        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            weakSelf.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(checkInternetStatus) userInfo:nil repeats:true];
+            
+            [weakSelf.indicatorView startAnimating];
+        }];
+        
+        [self.indicatorView stopAnimating];
+        
+        [alertController addAction:alertAction];
+        
+        [self presentViewController:alertController animated:true completion:nil];
+    
+    } else {
+    
+        [self changeRootViewController];
+    }
+}
+
+-(void)changeRootViewController {
+    
     id<ParkTableViewDataModelProtocol> dataModel = [[TaipeiParks alloc] init];
-
+    
     self.controller = [[ParkTableViewController alloc] initWithDataModel:dataModel];
-
+    
     __weak ParkTableViewController* weakController = self.controller;
-
+    
     self.controller.loadDataCompletion = ^{
         
         AppDelegate *appDelegate = (AppDelegate*) [UIApplication sharedApplication].delegate;
@@ -55,7 +103,7 @@
         
         [window setRootViewController:weakController];
     };
-
+    
     [self.controller loadData];
 }
 
