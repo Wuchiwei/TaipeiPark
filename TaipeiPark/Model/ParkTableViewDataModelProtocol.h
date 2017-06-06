@@ -18,4 +18,5 @@
 -(void) requestImageWithRow:(NSInteger)row andSection:(NSInteger)section completion:(void(^)(NSData*))completion;
 @optional
 -(NSString*) getDidRecieveDatasFromSeverNotificationString;
+
 @end

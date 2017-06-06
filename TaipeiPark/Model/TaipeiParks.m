@@ -34,21 +34,28 @@
 }
 
 -(NSInteger)numberOfSectionInTableView {
+    
     return 1;
 }
 
 -(NSInteger)numberOfRowInSection:(NSInteger)section {
+    
     return [self.parks count];
 }
 
 -(id) objectForCellAtRow:(NSInteger)row section:(NSInteger) section{
+    
     return self.parks[row];
 }
 
 -(void)requestParks {
     
+    static NSInteger dataOffset = 0;
+    
     TaipeiParkNetworkHandler* networkHandler = [TaipeiParkNetworkHandler sharedInstance];
 
+    [networkHandler setLimit:30 andOffset:dataOffset];
+    
     __weak TaipeiParks* weakSelf = self;
 
     [networkHandler makeRequestWithMethod:GET andEndPoint:limitWithOffset dataCompletion:^void(NSData *data) {
@@ -66,8 +73,8 @@
             [weakSelf.parks addObject:park];
         }
         
-        NSLog(@"%@", weakSelf.parks[0]);
-        
+        dataOffset += 30;
+
         [weakSelf postDidGetDatasFromServerNotification];
     }];
 }
@@ -78,6 +85,7 @@
 }
 
 -(void) postDidGetDatasFromServerNotification {
+
     [[NSNotificationCenter defaultCenter] postNotificationName:self.notificationName object:self];
 }
 
@@ -89,6 +97,7 @@
     
     [networkHandler downloadDataWith:imageString completion:completion];
 }
+
 @end
 
 

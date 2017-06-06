@@ -15,6 +15,7 @@
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSCache *cache;
 @property (strong, nonatomic) NSMutableDictionary *downloadedURLDict;
+@property (strong, nonatomic) UIActivityIndicatorView *indicatorView;
 @end
 
 @implementation ParkTableViewController
@@ -37,6 +38,11 @@
     }
     
     return self;
+}
+
+-(void)dealloc {
+    
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 -(void)setUp {
@@ -86,9 +92,24 @@
 
 -(void) reloadData {
     
-    NSLog(@"get data message YA");
+    [self checkIndicatorView];
     
     [self.tableView reloadData];
+}
+
+-(void) checkIndicatorView {
+
+    if (self.indicatorView) {
+        
+        [self.indicatorView removeFromSuperview];
+        
+        self.indicatorView = nil;
+        
+        UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
+        
+        [self.tableView setContentInset:insets];
+        
+    }
 }
 
 // MARK: TableView DataSource And Delegate
@@ -187,8 +208,47 @@
                 reloadCell.parkImageView.image = image;
             }
         }];
-        
     });
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+
+    CGPoint offset = scrollView.contentOffset;
+    
+    CGRect frame = scrollView.frame;
+    
+    CGSize size = scrollView.contentSize;
+    
+    UIEdgeInsets inset = scrollView.contentInset;
+    
+    float y = offset.y + frame.size.height - inset.bottom;
+    
+    float h = size.height;
+    
+    float reloadDistance = 50;
+    
+    if(y > h + reloadDistance && !self.indicatorView) {
+        
+        UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, reloadDistance * 2, 0);
+        
+        [self.tableView setContentInset:insets];
+        
+        self.indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        
+        self.indicatorView.color = [UIColor grayColor];
+        
+        self.indicatorView.frame = CGRectMake(0,
+                                              self.view.frame.size.height - reloadDistance * 2,
+                                              self.view.frame.size.width,
+                                             reloadDistance * 2);
+        
+        [self.view addSubview:self.indicatorView];
+
+        [self.indicatorView startAnimating];
+
+        [self.dataModel requestParks];
+    }
+    
 }
 
 @end
